@@ -2,11 +2,31 @@
 
 A roblox-ts package for Sleitnick's [Knit](https://sleitnick.github.io/Knit/) framework.
 
-### Unsupported Features
+### Notes
 
-- `this.Server` in Client methods is not supported. As a workaround, you can access your service directly via `Knit.Services.*`
+Services and controllers must be "registered" using a special syntax so that the entire code base can see them.
 
-### Example
+You can register a service like this:
+```ts
+declare global {
+	interface KnitServices {
+		MyService: typeof MyService;
+	}
+}
+```
+
+Or for a controller:
+```ts
+declare global {
+	interface KnitControllers {
+		MyController: typeof MyController;
+	}
+}
+```
+
+`this.Server` in Client methods is not supported. As a workaround, you can access your service directly via `Knit.Services.*`
+
+### Complete Example
 
 **`PointsService.ts`**
 ```ts
