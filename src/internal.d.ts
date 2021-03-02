@@ -1,14 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import Loader from "./Knit/Util/Loader";
-import Maid from "./Knit/Util/Maid";
-import Option from "./Knit/Util/Option";
 import ClientRemoteProperty from "./Knit/Util/Remote/ClientRemoteProperty";
 import ClientRemoteSignal from "./Knit/Util/Remote/ClientRemoteSignal";
 import RemoteProperty from "./Knit/Util/Remote/RemoteProperty";
 import RemoteSignal from "./Knit/Util/Remote/RemoteSignal";
-import Signal from "./Knit/Util/Signal";
-import Thread from "./Knit/Util/Thread";
 
 export type Service<S, C> = S & {
 	Name: string;
@@ -51,16 +46,8 @@ type MapServiceToClient<T> = { [K in keyof T]: MapValueToClient<T[K]> };
 
 export type ServiceMirror<T> = T extends Service<{}, infer C> ? MapServiceToClient<C> & PromisifyService<C> : never;
 
-export interface Util {
-	Loader: typeof Loader;
-	Maid: typeof Maid;
-	Option: typeof Option;
-	Signal: typeof Signal;
-	Thread: typeof Thread;
-}
-
 export interface Knit {
-	Util: Util;
+	Util: Folder;
 	Start: () => Promise<void>;
 	OnStart: () => Promise<void>;
 }
