@@ -1,7 +1,10 @@
 --[[
 
 	Knit.CreateController(controller): Controller
+	Knit.AddControllers(folder): Controller[]
+	Knit.AddControllersDeep(folder): Controller[]
 	Knit.GetService(serviceName): Service
+	Knit.GetController(controllerName): Controller
 	Knit.Start(): Promise<void>
 	Knit.OnStart(): Promise<void>
 
@@ -16,9 +19,10 @@ KnitClient.Util = script.Parent.Util
 
 local Promise = require(KnitClient.Util.Promise)
 local Thread = require(KnitClient.Util.Thread)
+local Loader = require(KnitClient.Util.Loader)
 local Ser = require(KnitClient.Util.Ser)
-local RemoteEvent = require(KnitClient.Util.Remote.RemoteEvent)
-local RemoteProperty = require(KnitClient.Util.Remote.RemoteProperty)
+local ClientRemoteSignal = require(KnitClient.Util.Remote.ClientRemoteSignal)
+local ClientRemoteProperty = require(KnitClient.Util.Remote.ClientRemoteProperty)
 local TableUtil = require(KnitClient.Util.TableUtil)
 
 local services = {}
@@ -49,14 +53,14 @@ local function BuildService(serviceName, folder)
 	if (folder:FindFirstChild("RE")) then
 		for _,re in ipairs(folder.RE:GetChildren()) do
 			if (re:IsA("RemoteEvent")) then
-				service[re.Name] = RemoteEvent.new(re)
+				service[re.Name] = ClientRemoteSignal.new(re)
 			end
 		end
 	end
 	if (folder:FindFirstChild("RP")) then
 		for _,rp in ipairs(folder.RP:GetChildren()) do
 			if (rp:IsA("ValueBase") or rp:IsA("RemoteEvent")) then
-				service[rp.Name] = RemoteProperty.new(rp)
+				service[rp.Name] = ClientRemoteProperty.new(rp)
 			end
 		end
 	end
@@ -78,11 +82,26 @@ function KnitClient.CreateController(controller)
 end
 
 
+function KnitClient.AddControllers(folder)
+	return Loader.LoadChildren(folder)
+end
+
+
+function KnitClient.AddControllersDeep(folder)
+	return Loader.LoadDescendants(folder)
+end
+
+
 function KnitClient.GetService(serviceName)
 	assert(type(serviceName) == "string", "ServiceName must be a string; got " .. type(serviceName))
 	local folder = servicesFolder:FindFirstChild(serviceName)
 	assert(folder ~= nil, "Could not find service \"" .. serviceName .. "\"")
 	return services[serviceName] or BuildService(serviceName, folder)
+end
+
+
+function KnitClient.GetController(controllerName)
+	return KnitClient.Controllers[controllerName]
 end
 
 
