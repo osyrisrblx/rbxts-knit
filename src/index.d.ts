@@ -11,7 +11,6 @@ export { default as ClientRemoteSignal } from "./Knit/Util/Remote/ClientRemoteSi
 export { default as KnitClient } from "./Knit/KnitClient";
 export { default as KnitServer } from "./Knit/KnitServer";
 export { default as Component } from "./Knit/Util/Component";
-export * from "./Knit/Util/ComponentInternal";
 export { default as Maid } from "./Knit/Util/Maid";
 export { default as Signal } from "./Knit/Util/Signal";
 export { default as Thread } from "./Knit/Util/Thread";
