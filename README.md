@@ -2,9 +2,25 @@
 
 A roblox-ts package for Sleitnick's [Knit](https://sleitnick.github.io/Knit/) framework.
 
-### Notes
+### Differences from the Luau version of Knit
 
-Services and controllers must be "registered" using a special syntax so that the entire code base can see them.
+**1. Importing Knit**
+
+Knit must be imported differently on the server and client.
+
+On the server-side, you should use:
+```ts
+import { KnitServer as Knit } from "@rbxts/knit";
+// Use Knit
+```
+
+On the client-side, you should use:
+```ts
+import { KnitClient as Knit } from "@rbxts/knit";
+// Use Knit
+```
+
+**2. Services and Controllers must be registered.**
 
 You can register a service like this:
 ```ts
@@ -24,7 +40,15 @@ declare global {
 }
 ```
 
-`this.Server` in Client methods is not supported. As a workaround, you can access your service directly via `Knit.Services.*`
+**3. The entire Service or Controller definition must be an object.**
+
+You must describe your service as a single object with fields, events, methods, etc. all together. Full example below.
+
+**4. `this.Server` in Client methods is not supported.**
+
+As a workaround, you can access your service directly via `Knit.Services`.
+
+i.e. `Knit.Services.MyService.FooBar()`
 
 ### Complete Example
 
