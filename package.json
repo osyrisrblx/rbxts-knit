@@ -4,6 +4,11 @@
 	"description": "Roblox game framework (Alpha)",
 	"main": "src/init.lua",
 	"typings": "src/index.d.ts",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/osyrisrblx/rbxts-knit.git"
+	},
+	"license": "MIT",
 	"scripts": {},
 	"dependencies": {},
 	"homepage": "https://sleitnick.github.io/Knit/",
