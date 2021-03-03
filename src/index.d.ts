@@ -3,6 +3,19 @@ declare global {
 	interface KnitControllers {}
 }
 
+export type Service<S, C> = S & {
+	Name: string;
+	Client: C;
+	KnitInit(): void;
+	KnitStart(): void;
+};
+
+export type Controller<T> = T & {
+	Name: string;
+	KnitInit(): void;
+	KnitStart(): void;
+};
+
 export { default as KnitClient } from "./Knit/KnitClient";
 export { default as KnitServer } from "./Knit/KnitServer";
 
@@ -21,5 +34,3 @@ export { default as Signal } from "./Knit/Util/Signal";
 export { default as Symbol } from "./Knit/Util/Symbol";
 export { default as TableUtil } from "./Knit/Util/TableUtil";
 export { default as Thread } from "./Knit/Util/Thread";
-
-export { Service, Controller } from "./internal";
