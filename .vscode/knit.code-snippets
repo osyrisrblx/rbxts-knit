@@ -1,0 +1,74 @@
+{
+	"Knit Service": {
+		"prefix": ["knitservice"],
+		"body": [
+			"import { KnitServer as Knit } from \"@rbxts/knit\";",
+			"",
+			"declare global {",
+			"\tinterface KnitServices {",
+			"\t\t${0:$TM_FILENAME_BASE}: typeof ${0:$TM_FILENAME_BASE};",
+			"\t}",
+			"}",
+			"",
+			"const ${0:$TM_FILENAME_BASE} = Knit.CreateService({",
+			"\tName: \"${0:$TM_FILENAME_BASE}\",",
+			"",
+			"\tClient: {",
+			"\t},",
+			"",
+			"\tKnitInit() {",
+			"\t},",
+			"",
+			"\tKnitStart() {",
+			"\t},",
+			"});",
+			"",
+			"export = ${0:$TM_FILENAME_BASE};"
+		],
+		"description": "Knit Service template"
+	},
+	"Knit Controller": {
+		"prefix": ["knitcontroller"],
+		"body": [
+			"import { KnitClient as Knit } from \"@rbxts/knit\";",
+			"",
+			"declare global {",
+			"\tinterface KnitControllers {",
+			"\t\t${0:$TM_FILENAME_BASE}: typeof ${0:$TM_FILENAME_BASE};",
+			"\t}",
+			"}",
+			"",
+			"const ${0:$TM_FILENAME_BASE} = Knit.CreateController({",
+			"\tName: \"${0:$TM_FILENAME_BASE}\",",
+			"",
+			"\tKnitInit() {",
+			"\t},",
+			"",
+			"\tKnitStart() {",
+			"\t},",
+			"});",
+			"",
+			"export = ${0:$TM_FILENAME_BASE};"
+		],
+		"description": "Knit Controller template"
+	},
+	"Knit Component": {
+		"prefix": ["knitcomponent"],
+		"body": [
+			"import { Component } from \"@rbxts/knit\";",
+			"",
+			"class ${0:$TM_FILENAME_BASE} implements Component.ComponentClass {",
+			"\tpublic static Tag = \"${0:$TM_FILENAME_BASE}\";",
+			"",
+			"\tconstructor(instance: Instance) {",
+			"\t}",
+			"",
+			"\tpublic Destroy() {",
+			"\t}",
+			"}",
+			"",
+			"export = ${0:$TM_FILENAME_BASE};",
+		],
+		"description": "Knit Component template"
+	}
+}

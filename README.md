@@ -181,3 +181,9 @@ PointsService.GetPointsPromise().then(points => {
 	print("Got points:", points);
 });
 ```
+
+## Snippets
+
+This repository provides VSCode snippets for constructing Services, Controllers, and Components.
+
+Simply copy [this file](.vscode/knit.code-snippets) into `.vscode/knit.code-snippets`.
