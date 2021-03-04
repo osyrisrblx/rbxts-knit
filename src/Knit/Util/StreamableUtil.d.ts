@@ -1,4 +1,4 @@
-import { Maid } from "../..";
+import Maid from "./Maid";
 import Streamable from "./Streamable";
 
 interface StreamableUtil {
