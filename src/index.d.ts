@@ -65,6 +65,8 @@ export { default as Option } from "./Knit/Util/Option";
 export { default as Promise } from "./Knit/Util/Promise";
 export { default as Ser } from "./Knit/Util/Ser";
 export { default as Signal } from "./Knit/Util/Signal";
+export { default as Streamable } from "./Knit/Util/Streamable";
+export { default as StreamableUtil } from "./Knit/Util/StreamableUtil";
 export { default as Symbol } from "./Knit/Util/Symbol";
 export { default as TableUtil } from "./Knit/Util/TableUtil";
 export { default as Thread } from "./Knit/Util/Thread";
