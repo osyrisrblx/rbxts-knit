@@ -5,8 +5,8 @@ interface Symbol {
 
 interface SymbolConstructor {
 	new (id: string, scope?: Symbol): Symbol;
-	Is: (obj: unknown) => obj is Symbol;
-	IsInScope: (obj: unknown, scope: Symbol) => boolean;
+	readonly Is: (obj: unknown) => obj is Symbol;
+	readonly IsInScope: (obj: unknown, scope: Symbol) => boolean;
 }
 
 declare const Symbol: SymbolConstructor;

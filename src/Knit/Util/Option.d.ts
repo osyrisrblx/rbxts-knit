@@ -18,11 +18,11 @@ interface Option<T> {
 }
 
 interface OptionConstructor {
-	Some: <T>(value: T) => Option<T>;
-	Wrap: <T>(value: T) => Option<T>;
-	Is: (obj: unknown) => obj is Option<unknown>;
-	Assert: (obj: unknown) => asserts obj is Option<unknown>;
-	Deserialize: (data: unknown) => Option<unknown>;
+	readonly Some: <T>(value: T) => Option<T>;
+	readonly Wrap: <T>(value: T) => Option<T>;
+	readonly Is: (obj: unknown) => obj is Option<unknown>;
+	readonly Assert: (obj: unknown) => asserts obj is Option<unknown>;
+	readonly Deserialize: (data: unknown) => Option<unknown>;
 }
 
 declare const Option: OptionConstructor;

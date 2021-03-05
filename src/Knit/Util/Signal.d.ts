@@ -18,7 +18,7 @@ interface Signal<T extends Callback = Callback> {
 
 interface SignalConstructor {
 	new <T extends Callback = Callback>(maid?: Maid): Signal<T>;
-	Is: (obj: unknown) => obj is Signal<Callback>;
+	readonly Is: (obj: unknown) => obj is Signal<Callback>;
 }
 
 declare const Signal: SignalConstructor;

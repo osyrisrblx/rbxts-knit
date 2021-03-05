@@ -3,7 +3,7 @@ import Signal from "../Signal";
 interface ClientRemoteProperty<T> {
 	Get(): T;
 	Destroy(): void;
-	Changed: Signal<(value: T) => void>;
+	readonly Changed: Signal<(value: T) => void>;
 }
 
 interface ClientRemotePropertyConstructor {

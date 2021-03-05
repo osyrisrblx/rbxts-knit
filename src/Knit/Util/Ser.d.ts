@@ -4,20 +4,20 @@
  * through remote functions and remote events.
  */
 interface Ser {
-	Classes: {
+	readonly Classes: {
 		[className: string]: {
-			Serialize: (value: unknown) => unknown;
-			Deserialize: (value: unknown) => unknown;
+			readonly Serialize: (value: unknown) => unknown;
+			readonly Deserialize: (value: unknown) => unknown;
 		};
 	};
 
-	SerializeArgs: (...args: Array<unknown>) => Array<unknown>;
-	SerializeArgsAndUnpack: (...args: Array<unknown>) => LuaTuple<Array<unknown>>;
-	DeserializeArgs: (...args: Array<unknown>) => Array<unknown>;
-	DeserializeArgsAndUnpack: (...args: Array<unknown>) => LuaTuple<Array<unknown>>;
-	Serialize: (value: unknown) => unknown;
-	Deserialize: (value: unknown) => unknown;
-	UnpackArgs: (...args: Array<unknown>) => Array<unknown>;
+	readonly SerializeArgs: (...args: Array<unknown>) => Array<unknown>;
+	readonly SerializeArgsAndUnpack: (...args: Array<unknown>) => LuaTuple<Array<unknown>>;
+	readonly DeserializeArgs: (...args: Array<unknown>) => Array<unknown>;
+	readonly DeserializeArgsAndUnpack: (...args: Array<unknown>) => LuaTuple<Array<unknown>>;
+	readonly Serialize: (value: unknown) => unknown;
+	readonly Deserialize: (value: unknown) => unknown;
+	readonly UnpackArgs: (...args: Array<unknown>) => Array<unknown>;
 }
 
 export = Ser;

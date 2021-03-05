@@ -16,7 +16,7 @@ interface KnitServer {
 	 * While it is safe to reference other services at the `KnitInit` stage, it is not safe to use them.
 	 * Wait until the `KnitStart` stage to start using them (e.g. calling methods and events).
 	 */
-	Services: KnitServices;
+	readonly Services: KnitServices;
 
 	/**
 	 * A folder containing utility modules used by Knit, but also accessible for developers to use.
@@ -32,7 +32,7 @@ interface KnitServer {
 	 * local Signal = require(Knit.Util.Signal)
 	 * ```
 	 */
-	Util: Folder;
+	readonly Util: Folder;
 
 	/**
 	 * Start Knit. This returns a promise which resolves once all services or controllers are fully initialized and
@@ -75,7 +75,7 @@ interface KnitServer {
 	 * It is important that errors are handled when starting Catch,
 	 * as any errors within the Init lifecycle will go undetected otherwise.
 	 */
-	Start: () => Promise<void>;
+	readonly Start: () => Promise<void>;
 
 	/**
 	 * Wait for Knit to start. This is useful if there are other scripts that need to access Knit services or
@@ -86,7 +86,7 @@ interface KnitServer {
 	 * Knit.OnStart():Await()
 	 * ```
 	 */
-	OnStart: () => Promise<void>;
+	readonly OnStart: () => Promise<void>;
 
 	/**
 	 * Creates a new [service](https://sleitnick.github.io/Knit/knitapi/#service). Returns the service. Please see the
@@ -99,7 +99,7 @@ interface KnitServer {
 	 * local MyService = Knit.CreateService { Name = "MyService", Client = {} }
 	 * ```
 	 */
-	CreateService: <T extends Partial<Service<{}, U>>, U>(service: T) => Service<T, U>;
+	readonly CreateService: <T extends Partial<Service<{}, U>>, U>(service: T) => Service<T, U>;
 
 	/**
 	 * Automatically creates new [services](https://sleitnick.github.io/Knit/knitapi/#service) from ModuleScripts found
@@ -108,7 +108,7 @@ interface KnitServer {
 	 * Knit.AddServices(serverStorage.MyServices)
 	 * ```
 	 */
-	AddServices: (folder: Instance) => void;
+	readonly AddServices: (folder: Instance) => void;
 
 	/**
 	 * Works the same as `Knit.AddServices`, but scans all descendants of `folder`. This is useful if services are
@@ -122,7 +122,7 @@ interface KnitServer {
 	 * Knit.AddServicesDeep(serverStorage.MyServices)
 	 * ```
 	 */
-	AddServicesDeep: (folder: Instance) => void;
+	readonly AddServicesDeep: (folder: Instance) => void;
 }
 
 declare const KnitServer: KnitServer;

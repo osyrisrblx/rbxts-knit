@@ -14,7 +14,7 @@ interface RemoteProperty<T> {
 
 interface RemotePropertyConstructor {
 	new <T>(value: T, overrideClass?: ValueObjectClassNames): RemoteProperty<T>;
-	Is: (object: unknown) => object is RemoteProperty<unknown>;
+	readonly Is: (object: unknown) => object is RemoteProperty<unknown>;
 }
 
 declare const RemoteProperty: RemotePropertyConstructor;

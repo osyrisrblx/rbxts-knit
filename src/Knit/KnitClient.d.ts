@@ -45,7 +45,7 @@ interface KnitClient {
 	 * While it is safe to reference other controllers at the `KnitInit` stage, it is not safe to use them.
 	 * Wait until the `KnitStart` stage to start using them (e.g. calling methods and events).
 	 */
-	Controllers: KnitControllers;
+	readonly Controllers: KnitControllers;
 
 	/**
 	 * A folder containing utility modules used by Knit, but also accessible for developers to use.
@@ -61,7 +61,7 @@ interface KnitClient {
 	 * local Signal = require(Knit.Util.Signal)
 	 * ```
 	 */
-	Util: Folder;
+	readonly Util: Folder;
 
 	/**
 	 * Start Knit.
@@ -105,7 +105,7 @@ interface KnitClient {
 	 * It is important that errors are handled when starting Catch,
 	 * as any errors within the Init lifecycle will go undetected otherwise.
 	 */
-	Start: () => Promise<void>;
+	readonly Start: () => Promise<void>;
 
 	/**
 	 * Wait for Knit to start. This is useful if there are other scripts that need to access Knit services or
@@ -116,7 +116,7 @@ interface KnitClient {
 	 * Knit.OnStart():Await()
 	 * ```
 	 */
-	OnStart: () => Promise<void>;
+	readonly OnStart: () => Promise<void>;
 
 	/**
 	 * Creates a new [controller](https://sleitnick.github.io/Knit/knitapi/#controller). Returns the controller. Please
@@ -124,7 +124,7 @@ interface KnitClient {
 	 *
 	 * The provided `controller` table must contain a unique `Name` property.
 	 */
-	CreateController: <T extends Partial<Controller<{}>>>(controller: T) => Controller<T>;
+	readonly CreateController: <T extends Partial<Controller<{}>>>(controller: T) => Controller<T>;
 
 	/**
 	 * Automatically creates new controllers from ModuleScripts found directly within `folder`.
@@ -133,7 +133,7 @@ interface KnitClient {
 	 * Knit.AddControllers(replicatedStorage.MyControllers)
 	 * ```
 	 */
-	AddControllers: (folder: Instance) => void;
+	readonly AddControllers: (folder: Instance) => void;
 
 	/**
 	 * Works the same as `Knit.AddControllers`, but scans all descendants of `folder`. This is useful if controllers are
@@ -147,7 +147,7 @@ interface KnitClient {
 	 * Knit.AddControllersDeep(replicatedStorage.MyControllers)
 	 * ```
 	 */
-	AddControllersDeep: (folder: Instance) => void;
+	readonly AddControllersDeep: (folder: Instance) => void;
 
 	/**
 	 * Returns a [ServiceMirror](https://sleitnick.github.io/Knit/knitapi/#servicemirror) table object representing the
@@ -164,14 +164,14 @@ interface KnitClient {
 	 * SomeService:DoSomethingPromise():Then(function() ... end)
 	 * ```
 	 */
-	GetService: <T extends keyof KnitServices>(serviceName: T) => ServiceMirror<KnitServices[T]>;
+	readonly GetService: <T extends keyof KnitServices>(serviceName: T) => ServiceMirror<KnitServices[T]>;
 
 	/**
 	 * Returns a [controller](https://sleitnick.github.io/Knit/knitapi/#controller) with the given controller name. This
 	 * is just an alias for `Knit.Controllers[controllerName]` and only exists for developers who want to have the same
 	 * pattern used with `Knit.GetService`.
 	 */
-	GetController: <T extends keyof KnitControllers>(controllerName: T) => KnitControllers[T];
+	readonly GetController: <T extends keyof KnitControllers>(controllerName: T) => KnitControllers[T];
 }
 
 declare const KnitClient: KnitClient;

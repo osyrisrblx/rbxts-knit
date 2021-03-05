@@ -24,8 +24,8 @@ interface Component<T extends Component.ComponentClass> {
 }
 
 interface ComponentConstructor {
-	FromTag: (tag: string) => Component<Component.ComponentClass>;
-	Auto: (folder: Folder) => void;
+	readonly FromTag: (tag: string) => Component<Component.ComponentClass>;
+	readonly Auto: (folder: Folder) => void;
 	new <T extends Component.ComponentClass>(
 		tag: string,
 		classConstructor: Component.ComponentClassConstructor<T>,

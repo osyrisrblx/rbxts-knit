@@ -10,13 +10,13 @@ export type Service<S, C> = S & {
 	/**
 	 * The name of the service.
 	 */
-	Name: string;
+	readonly Name: string;
 
 	/**
 	 * A [ServiceClient](https://sleitnick.github.io/Knit/knitapi/#serviceclient) table that contains client-exposed
 	 * methods and events.
 	 */
-	Client: C;
+	readonly Client: C;
 
 	/**
 	 * An optional method that is called during the KnitInit lifecycle stage
@@ -35,7 +35,7 @@ export type Controller<T> = T & {
 	/**
 	 * The name of the controller.
 	 */
-	Name: string;
+	readonly Name: string;
 
 	/**
 	 * An optional method that is called during the KnitInit lifecycle stage

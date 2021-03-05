@@ -2,7 +2,7 @@ import Maid from "./Maid";
 import Signal from "./Signal";
 
 interface Streamable {
-	Instance: Instance | undefined;
+	readonly Instance: Instance | undefined;
 	Observe(handler: (child: Instance, maid: Maid) => void): Signal.Connection;
 	Destroy(): void;
 }
