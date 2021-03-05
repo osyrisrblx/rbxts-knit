@@ -1,3 +1,5 @@
+import Signal from "../Signal";
+
 type ValueObjectClassNames = {
 	[K in keyof Instances]: K extends `${infer U}Value` ? K : never;
 }[keyof Instances];
@@ -7,6 +9,7 @@ interface RemoteProperty<T> {
 	Set(value: T): void;
 	Get(): T;
 	Destroy(): void;
+	readonly Changed: Signal<(value: T) => void>;
 }
 
 interface RemotePropertyConstructor {
