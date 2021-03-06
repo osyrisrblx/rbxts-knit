@@ -1,4 +1,7 @@
-interface Symbol {
+interface Symbol<T extends string> {
+	readonly ClassName: "Symbol";
+	/** @hidden */
+	readonly _id: T;
 	/** @hidden */
 	readonly _nominal_Symbol: unique symbol;
 }

@@ -1,3 +1,5 @@
+import Symbol from "./Symbol";
+
 interface Thread {
 	readonly SpawnNow: <T extends (...args: any) => any>(func: T, ...args: Parameters<T>) => void;
 
@@ -10,16 +12,24 @@ interface Thread {
 	) => RBXScriptConnection;
 
 	readonly DelayRepeatBehavior: {
-		readonly Delayed: unique symbol;
-		readonly Immediate: unique symbol;
+		readonly Delayed: Thread.DelayRepeatBehavior.Delayed;
+		readonly Immediate: Thread.DelayRepeatBehavior.Immediate;
 	};
 
 	readonly DelayRepeat: <T extends (...args: any) => any>(
 		intervalTime: number,
 		func: T,
-		behavior: Thread["DelayRepeatBehavior"][keyof Thread["DelayRepeatBehavior"]],
+		behavior?: Thread.DelayRepeatBehavior,
 		...args: Parameters<T>
 	) => RBXScriptConnection;
+}
+
+declare namespace Thread {
+	export namespace DelayRepeatBehavior {
+		type Delayed = Symbol<"Delayed">;
+		type Immediate = Symbol<"Immediate">;
+	}
+	type DelayRepeatBehavior = DelayRepeatBehavior.Delayed | DelayRepeatBehavior.Immediate;
 }
 
 declare const Thread: Thread;
