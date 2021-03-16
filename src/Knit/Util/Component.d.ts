@@ -21,6 +21,7 @@ interface Component<T extends Component.ComponentClass> {
 	Filter(filterFunc: (v: T, i: number, t: Array<T>) => boolean): Array<T>;
 	WaitFor(instance: Instance, timeout: number): Promise<T>;
 	Destroy(): void;
+	readonly Instance: Instance;
 }
 
 interface ComponentConstructor {

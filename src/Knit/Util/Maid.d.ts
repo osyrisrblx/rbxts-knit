@@ -21,6 +21,9 @@ type Maid = {
 	 */
 	GiveTask(task: Maid.Task): number;
 
+	/** Give the maid a promise as a task, which will call 'promise:Cancel()' on cleanup */
+	GivePromise<T>(promise: Promise<T>): Promise<void>;
+
 	/**
 	 * Cleans up all tasks
 	 * @alias Destroy

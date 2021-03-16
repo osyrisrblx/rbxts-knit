@@ -19,6 +19,7 @@ interface Signal<T extends Callback = Callback> {
 interface SignalConstructor {
 	new <T extends Callback = Callback>(maid?: Maid): Signal<T>;
 	readonly Is: (obj: unknown) => obj is Signal<Callback>;
+	readonly Proxy: <T extends Callback>(rbxScriptSignal: RBXScriptSignal<T>, maid?: Maid) => Signal<T>;
 }
 
 declare const Signal: SignalConstructor;
