@@ -106,15 +106,15 @@ end
 
 
 function KnitClient.Start()
-	
+
 	if (started) then
 		return Promise.Reject("Knit already started")
 	end
-	
+
 	started = true
 
 	local controllers = KnitClient.Controllers
-	
+
 	return Promise.new(function(resolve)
 
 		-- Init:
@@ -138,16 +138,16 @@ function KnitClient.Start()
 				Thread.SpawnNow(controller.KnitStart, controller)
 			end
 		end
-		
+
 		startedComplete = true
 		onStartedComplete:Fire()
 
 		Thread.Spawn(function()
 			onStartedComplete:Destroy()
 		end)
-		
+
 	end)
-	
+
 end
 
 

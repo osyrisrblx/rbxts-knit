@@ -138,17 +138,17 @@ end
 
 
 function KnitServer.Start()
-	
+
 	if (started) then
 		return Promise.Reject("Knit already started")
 	end
 
 	started = true
-	
+
 	local services = KnitServer.Services
-	
+
 	return Promise.new(function(resolve)
-		
+
 		-- Bind remotes:
 		for _,service in pairs(services) do
 			for k,v in pairs(service.Client) do
@@ -163,7 +163,7 @@ function KnitServer.Start()
 				end
 			end
 		end
-		
+
 		-- Init:
 		local promisesInitServices = {}
 		for _,service in pairs(services) do
@@ -174,18 +174,18 @@ function KnitServer.Start()
 				end))
 			end
 		end
-		
+
 		resolve(Promise.All(promisesInitServices))
 
 	end):Then(function()
-		
+
 		-- Start:
 		for _,service in pairs(services) do
 			if (type(service.KnitStart) == "function") then
 				Thread.SpawnNow(service.KnitStart, service)
 			end
 		end
-		
+
 		startedComplete = true
 		onStartedComplete:Fire()
 
@@ -195,9 +195,9 @@ function KnitServer.Start()
 
 		-- Expose service remotes to everyone:
 		knitRepServiceFolder.Parent = script.Parent
-		
+
 	end)
-	
+
 end
 
 
