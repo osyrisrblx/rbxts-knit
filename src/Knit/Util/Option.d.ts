@@ -1,4 +1,4 @@
-interface Option<T> {
+interface Option<T = unknown> {
 	Serialize(): { ClassName: string; Value: T };
 	Match<U>(matches: { Some: (value: T) => U; None: () => U }): U;
 	IsSome(): boolean;
@@ -20,9 +20,10 @@ interface Option<T> {
 interface OptionConstructor {
 	readonly Some: <T>(value: T) => Option<T>;
 	readonly Wrap: <T>(value: T) => Option<T>;
-	readonly Is: (obj: unknown) => obj is Option<unknown>;
-	readonly Assert: (obj: unknown) => asserts obj is Option<unknown>;
-	readonly Deserialize: (data: unknown) => Option<unknown>;
+	readonly Is: (obj: unknown) => obj is Option;
+	readonly Assert: (obj: unknown) => asserts obj is Option;
+	readonly Deserialize: (data: unknown) => Option;
+	readonly None: Option;
 }
 
 declare const Option: OptionConstructor;
