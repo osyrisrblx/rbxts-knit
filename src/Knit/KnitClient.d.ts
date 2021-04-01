@@ -172,6 +172,11 @@ interface KnitClient {
 	 * pattern used with `Knit.GetService`.
 	 */
 	readonly GetController: <T extends keyof KnitControllers>(controllerName: T) => KnitControllers[T];
+
+	/**
+	 * Reference to Players.LocalPlayer
+	 */
+	readonly Player: Player;
 }
 
 declare const KnitClient: KnitClient;
