@@ -1,6 +1,6 @@
 {
 	"name": "@rbxts/knit",
-	"version": "0.0.14-alpha.1",
+	"version": "0.0.14-alpha.2",
 	"description": "Roblox game framework (Alpha)",
 	"main": "src/init.lua",
 	"typings": "src/index.d.ts",
