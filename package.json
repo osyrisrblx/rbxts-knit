@@ -28,6 +28,7 @@
 		"access": "public"
 	},
 	"files": [
-		"src"
+		"src",
+		"!src/test.ts"
 	]
 }
