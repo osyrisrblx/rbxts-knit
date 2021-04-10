@@ -99,7 +99,9 @@ interface KnitServer {
 	 * local MyService = Knit.CreateService { Name = "MyService", Client = {} }
 	 * ```
 	 */
-	readonly CreateService: <T extends Partial<Service<{}, U>>, U>(service: T) => Service<T, U>;
+	readonly CreateService: <T extends Partial<Service<{}, U>>, U>(
+		service: T & { Client: ThisType<T["Client"] & { Server: T }> },
+	) => Service<T, U>;
 
 	/**
 	 * Automatically creates new [services](https://sleitnick.github.io/Knit/knitapi/#service) from ModuleScripts found
