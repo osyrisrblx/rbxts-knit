@@ -125,6 +125,8 @@ interface KnitServer {
 	 * ```
 	 */
 	readonly AddServicesDeep: (folder: Instance) => void;
+
+	readonly GetService: <T extends keyof KnitServices>(serviceName: T) => KnitServices[T];
 }
 
 declare const KnitServer: KnitServer;
