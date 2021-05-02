@@ -76,7 +76,7 @@ declare namespace TableUtil {
 	 * end
 	 * ```
 	 */
-	export function FastRemoveFirstValue<T>(tbl: Array<T>, value: T): LuaTuple<[T | undefined, number | undefined]>;
+	export function FastRemoveFirstValue<T>(tbl: Array<T>, value: T): LuaTuple<[boolean, number | undefined]>;
 
 	/**
 	 * This allows you to construct a new table by calling the given function

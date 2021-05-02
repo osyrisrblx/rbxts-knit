@@ -1,4 +1,4 @@
-import Signal from "./Signal"
+import Signal from "./Signal";
 
 declare namespace Component {
 	export interface ComponentClass {
