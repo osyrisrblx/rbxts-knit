@@ -1,6 +1,6 @@
 -- hack to use roblox-ts's copy of roblox-lua-promise
 
-local TS = _G[script.Parent.Parent.Parent]
+local TS = _G[script.Parent.Parent]
 local Promise = TS.Promise
 
 -- Knit modifies roblox-lua-promise to add PascalCase API
