@@ -3,28 +3,28 @@ local RunService = game:GetService("RunService")
 local exports = {}
 
 if RunService:IsServer() then
-	exports.KnitServer = require(script.Knit.KnitServer)
+	exports.KnitServer = require(script.KnitServer)
 else
-	script.Knit.KnitServer:Destroy()
-	exports.KnitClient = require(script.Knit.KnitClient)
+	script.KnitServer:Destroy()
+	exports.KnitClient = require(script.KnitClient)
 end
 
-exports.RemoteProperty = require(script.Knit.Util.Remote.RemoteProperty)
-exports.RemoteSignal = require(script.Knit.Util.Remote.RemoteSignal)
-exports.ClientRemoteProperty = require(script.Knit.Util.Remote.ClientRemoteProperty)
-exports.ClientRemoteSignal = require(script.Knit.Util.Remote.ClientRemoteSignal)
+exports.RemoteProperty = require(script.Util.Remote.RemoteProperty)
+exports.RemoteSignal = require(script.Util.Remote.RemoteSignal)
+exports.ClientRemoteProperty = require(script.Util.Remote.ClientRemoteProperty)
+exports.ClientRemoteSignal = require(script.Util.Remote.ClientRemoteSignal)
 
-exports.Component = require(script.Knit.Util.Component)
-exports.Loader = require(script.Knit.Util.Loader)
-exports.Maid = require(script.Knit.Util.Maid)
-exports.Option = require(script.Knit.Util.Option)
-exports.Promise = require(script.Knit.Util.Promise)
-exports.Ser = require(script.Knit.Util.Ser)
-exports.Signal = require(script.Knit.Util.Signal)
-exports.Streamable = require(script.Knit.Util.Streamable)
-exports.StreamableUtil = require(script.Knit.Util.StreamableUtil)
-exports.Symbol = require(script.Knit.Util.Symbol)
-exports.TableUtil = require(script.Knit.Util.TableUtil)
-exports.Thread = require(script.Knit.Util.Thread)
+exports.Component = require(script.Util.Component)
+exports.Loader = require(script.Util.Loader)
+exports.Maid = require(script.Util.Maid)
+exports.Option = require(script.Util.Option)
+exports.Promise = require(script.Util.Promise)
+exports.Ser = require(script.Util.Ser)
+exports.Signal = require(script.Util.Signal)
+exports.Streamable = require(script.Util.Streamable)
+exports.StreamableUtil = require(script.Util.StreamableUtil)
+exports.Symbol = require(script.Util.Symbol)
+exports.TableUtil = require(script.Util.TableUtil)
+exports.Thread = require(script.Util.Thread)
 
 return exports
