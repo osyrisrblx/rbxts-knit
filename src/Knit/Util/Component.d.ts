@@ -1,3 +1,5 @@
+import Signal from "./Signal"
+
 declare namespace Component {
 	export interface ComponentClass {
 		Destroy(): void;
@@ -19,8 +21,10 @@ interface Component<T extends Component.ComponentClass> {
 	GetFromInstance(instance: Instance): T | undefined;
 	GetFromID(id: string): T | undefined;
 	Filter(filterFunc: (v: T, i: number, t: Array<T>) => boolean): Array<T>;
-	WaitFor(instance: Instance, timeout: number): Promise<T>;
+	WaitFor(instance: Instance, timeout?: number): Promise<T>;
 	Destroy(): void;
+	readonly Added: Signal<(component: T) => void>;
+	readonly Removed: Signal<(component: T) => void>;
 	readonly Instance: Instance;
 }
 
