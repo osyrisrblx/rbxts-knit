@@ -44,13 +44,7 @@ declare global {
 
 You must describe your service as a single object with fields, events, methods, etc. all together. Full example below.
 
-### **4. `this.Server` in Client methods is not supported.**
-
-As a workaround, you can access your service directly via `Knit.Services`.
-
-i.e. `Knit.Services.MyService.FooBar()`
-
-### **5. Components**
+### **4. Components**
 
 Components should defined using `implements Component.ComponentClass`. Here's an example:
 
@@ -109,7 +103,7 @@ const PointsService = Knit.CreateService({
 
 		// Client exposed GetPoints method:
 		GetPoints(player: Player) {
-			return Knit.Services.PointsService.GetPoints(player);
+			return this.Server.GetPoints(player);
 		},
 	},
 
