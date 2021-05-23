@@ -232,7 +232,7 @@ declare namespace TableUtil {
 	 * print(table.concat(tbl, ", "))  -- e.g. > 3, 6, 9, 2, 8, 4, 1, 7, 5
 	 * ```
 	 */
-	export function Shuffle<T>(tbl: Array<T>): void;
+	export function Shuffle<T>(tbl: ReadonlyArray<T>): Array<T>;
 
 	export function IsEmpty<T>(tbl: ReadonlyArray<T>): boolean;
 
