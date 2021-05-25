@@ -192,8 +192,8 @@ declare namespace TableUtil {
 	 * print(t1)  --> { "a", "b", "c", "d", "e", "f" }
 	 * ```
 	 */
-	export function Extend<T>(target: Array<T>, extension: ReadonlyArray<T>): void;
-	export function Extend<T extends object, U extends object>(target: T, extension: U): void;
+	export function Extend<T>(target: ReadonlyArray<T>, extension: ReadonlyArray<T>): Array<T>;
+	export function Extend<T extends object, U extends object>(target: T, extension: U): T & U;
 
 	/**
 	 * Returns the index of the given item in the table. If not found, this
