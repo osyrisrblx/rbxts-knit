@@ -100,7 +100,7 @@ interface KnitServer {
 	 * ```
 	 */
 	readonly CreateService: <T extends Partial<Service<{}, U>>, U>(
-		service: T & { Client: ThisType<T["Client"] & { Server: T }> },
+		service: T & { Client?: ThisType<T["Client"] & { Server: T }> },
 	) => Service<T, U>;
 
 	/**
