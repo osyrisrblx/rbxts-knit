@@ -33,7 +33,7 @@ interface Component<T extends Component.ComponentClass> {
 
 interface ComponentConstructor {
 	readonly FromTag: (tag: string) => Component<Component.ComponentClass>;
-	readonly Auto: (folder: Folder) => void;
+	readonly Auto: (folder: Instance) => void;
 	new <T extends Component.ComponentClass>(
 		tag: string,
 		classConstructor: Component.ComponentClassConstructor<T>,
