@@ -3,34 +3,37 @@ import Signal from "./Signal";
 
 declare namespace Component {
 	export interface ComponentClass {
-		/** 
-		 * 
+		/**
+		 *
 		 * Destroy is fired internally when the component becomes unbound from the instance.
-		 *  
+		 *
 		 * A component is destroyed when one of the following conditions occurs:
 		 * - The bound instance is destroyed.
 		 * - The bound instance no longer has the component tag anymore.
 		 * - The bound instance no longer has the required components attached anymore (see documentation on Required Components).
-		 * 
+		 *
 		 * It is recommended to use maids in components and to only have the maid cleanup within the Destroy method. */
 		Destroy(): void;
 		/** Init fires a tick/frame after the constructor has fired. */
 		Init?(): void;
 		/** Deinit fires right before the component's Destroy method is called. */
 		Deinit?(): void;
-		/** Fired when RunService.Heartbeat is fired.
+		/**
+		 * Fired when RunService.Heartbeat is fired.
 		 * The delta time argument from the event is passed as an argument to the method.
 		 */
-		HeartbeatUpdate?(): void;
-		/** Fired when RunService.Stepped is fired.
+		HeartbeatUpdate?(dt: number): void;
+		/**
+		 * Fired when RunService.Stepped is fired.
 		 * The delta time argument from the event is passed as an argument to the method.
 		 */
-		SteppedUpdate?(): void;
-		/** The RenderUpdate optional method uses RunService:BindToRenderStep internally, 
-		 * using your component's RenderPriority field as the priority for binding. 
+		SteppedUpdate?(dt: number): void;
+		/**
+		 * The RenderUpdate optional method uses RunService:BindToRenderStep internally,
+		 * using your component's RenderPriority field as the priority for binding.
 		 * Just like HeartbeatUpdate and SteppedUpdate, the delta time is passed along to the method.
-		*/
-		RenderUpdate?(): void;
+		 */
+		RenderUpdate?(dt: number): void;
 	}
 
 	/**
@@ -39,7 +42,8 @@ declare namespace Component {
 	 */
 	export interface ComponentClassConstructor<T extends ComponentClass> {
 		Tag?: string;
-		RequiredComponents: ReadonlyArray<string>;
+		RequiredComponents?: ReadonlyArray<string>;
+		RenderPriority?: number;
 		new (instance: Instance): T;
 	}
 }
