@@ -1,4 +1,4 @@
-import Maid from "./Maid";
+import Janitor from "./Janitor";
 
 declare namespace Signal {
 	export interface Connection {
@@ -17,9 +17,9 @@ interface Signal<T extends Callback = Callback> {
 }
 
 interface SignalConstructor {
-	new <T extends Callback = Callback>(maid?: Maid): Signal<T>;
+	new <T extends Callback = Callback>(janitor?: Janitor): Signal<T>;
 	readonly Is: (obj: unknown) => obj is Signal<Callback>;
-	readonly Proxy: <T extends Callback>(rbxScriptSignal: RBXScriptSignal<T>, maid?: Maid) => Signal<T>;
+	readonly Proxy: <T extends Callback>(rbxScriptSignal: RBXScriptSignal<T>, janitor?: Janitor) => Signal<T>;
 }
 
 declare const Signal: SignalConstructor;

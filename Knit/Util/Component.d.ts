@@ -1,4 +1,4 @@
-import Maid from "./Maid";
+import Janitor from "./Janitor";
 import Signal from "./Signal";
 
 declare namespace Component {
@@ -12,7 +12,7 @@ declare namespace Component {
 		 * - The bound instance no longer has the component tag anymore.
 		 * - The bound instance no longer has the required components attached anymore (see documentation on Required Components).
 		 *
-		 * It is recommended to use maids in components and to only have the maid cleanup within the Destroy method. */
+		 * It is recommended to use janitors in components and to only have the janitor cleanup within the Destroy method. */
 		Destroy(): void;
 		/** Init fires a tick/frame after the constructor has fired. */
 		Init?(): void;
@@ -60,8 +60,8 @@ interface Component<T extends Component.ComponentClass> {
 	WaitFor(instance: Instance, timeout?: number): Promise<T>;
 	/** If the component is not needed anymore, Destroy can be called to clean it up. Typically, components are never destroyed. */
 	Destroy(): void;
-	/** Observes when a component is bound to a given instance. Returns a maid that can be destroyed. */
-	Observe(instance: Instance, observer: (component: T, maid: Maid) => void): Maid;
+	/** Observes when a component is bound to a given instance. Returns a janitor that can be destroyed. */
+	Observe(instance: Instance, observer: (component: T, janitor: Janitor) => void): Janitor;
 	readonly Added: Signal<(component: T) => void>;
 	readonly Removed: Signal<(component: T) => void>;
 	readonly Instance: Instance;

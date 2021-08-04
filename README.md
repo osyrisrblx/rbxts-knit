@@ -49,16 +49,16 @@ You must describe your service as a single object with fields, events, methods, 
 Components should defined using `implements Component.ComponentClass`. Here's an example:
 
 ```ts
-import { Component, Maid } from "@rbxts/knit";
+import { Component, Janitor } from "@rbxts/knit";
 
 class Lava implements Component.ComponentClass {
     public static Tag = "Lava";
 
-    private maid = new Maid();
+    private janitor = new Janitor();
 
     constructor(instance: Instance) {
         assert(instance.IsA("BasePart"));
-        this.maid.GiveTask(
+        this.janitor.Add(
             instance.Touched.Connect((otherPart) =>
                 otherPart.Parent?.FindFirstChildOfClass("Humanoid")?.TakeDamage(100),
             ),
@@ -66,7 +66,7 @@ class Lava implements Component.ComponentClass {
     }
 
     public Destroy() {
-        this.maid.Destroy();
+        this.janitor.Destroy();
     }
 }
 

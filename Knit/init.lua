@@ -15,8 +15,8 @@ exports.ClientRemoteProperty = require(script.Util.Remote.ClientRemoteProperty)
 exports.ClientRemoteSignal = require(script.Util.Remote.ClientRemoteSignal)
 
 exports.Component = require(script.Util.Component)
+exports.Janitor = require(script.Util.Janitor)
 exports.Loader = require(script.Util.Loader)
-exports.Maid = require(script.Util.Maid)
 exports.Option = require(script.Util.Option)
 exports.Promise = require(script.Util.Promise)
 exports.Ser = require(script.Util.Ser)
@@ -26,5 +26,6 @@ exports.StreamableUtil = require(script.Util.StreamableUtil)
 exports.Symbol = require(script.Util.Symbol)
 exports.TableUtil = require(script.Util.TableUtil)
 exports.Thread = require(script.Util.Thread)
+exports.Timer = require(script.Util.Timer)
 
 return exports

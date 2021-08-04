@@ -51,7 +51,7 @@ interface KnitClient {
 	 * A folder containing utility modules used by Knit, but also accessible for developers to use.
 	 *
 	 * This folder contains the following modules:
-	 * * Maid
+	 * * Janitor
 	 * * Event
 	 * * Promise
 	 * * Thread

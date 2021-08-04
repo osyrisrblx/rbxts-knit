@@ -1,9 +1,9 @@
-import Maid from "./Maid";
+import Janitor from "./Janitor";
 import Signal from "./Signal";
 
 interface Streamable {
 	readonly Instance: Instance | undefined;
-	Observe(handler: (child: Instance, maid: Maid) => void): Signal.Connection;
+	Observe(handler: (child: Instance, janitor: Janitor) => void): Signal.Connection;
 	Destroy(): void;
 }
 

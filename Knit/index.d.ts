@@ -59,8 +59,8 @@ export { default as ClientRemoteProperty } from "./Util/Remote/ClientRemotePrope
 export { default as ClientRemoteSignal } from "./Util/Remote/ClientRemoteSignal";
 
 export { default as Component } from "./Util/Component";
+export { default as Janitor } from "./Util/Janitor";
 export { default as Loader } from "./Util/Loader";
-export { default as Maid } from "./Util/Maid";
 export { default as Option } from "./Util/Option";
 export { default as Promise } from "./Util/Promise";
 export { default as Ser } from "./Util/Ser";
@@ -69,4 +69,4 @@ export { default as Streamable } from "./Util/Streamable";
 export { default as StreamableUtil } from "./Util/StreamableUtil";
 export { default as Symbol } from "./Util/Symbol";
 export { default as TableUtil } from "./Util/TableUtil";
-export { default as Thread } from "./Util/Thread";
+export { default as Timer } from "./Util/Timer";
