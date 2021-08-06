@@ -1,6 +1,6 @@
 ## **`@rbxts/knit`**
 
-A roblox-ts package for Sleitnick's [Knit](https://sleitnick.github.io/Knit/) framework.
+A roblox-ts package for Sleitnick's [Knit](https://atollstudios.github.io/Knit/) framework.
 
 ## Differences from the Luau version of Knit
 

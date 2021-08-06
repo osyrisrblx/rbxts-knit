@@ -2,7 +2,7 @@ import { Service } from "..";
 
 interface KnitServer {
 	/**
-	 * A table that contains all created [services](https://sleitnick.github.io/Knit/knitapi/#service).
+	 * A table that contains all created [services](https://atollstudios.github.io/Knit/knitapi/#service).
 	 *
 	 * ```lua
 	 * local allServices = Knit.Services
@@ -89,8 +89,8 @@ interface KnitServer {
 	readonly OnStart: () => Promise<void>;
 
 	/**
-	 * Creates a new [service](https://sleitnick.github.io/Knit/knitapi/#service). Returns the service. Please see the
-	 * [Services](https://sleitnick.github.io/Knit/services/) documentation for more info.
+	 * Creates a new [service](https://atollstudios.github.io/Knit/knitapi/#service). Returns the service. Please see the
+	 * [Services](https://atollstudios.github.io/Knit/services/) documentation for more info.
 	 *
 	 * The provided `service` table must contain a unique Name property. It can optionally contain a `Client` table as
 	 * well. If the `Client` table isn't provided, Knit will automatically create one for the service.
@@ -104,7 +104,7 @@ interface KnitServer {
 	) => Service<T, U>;
 
 	/**
-	 * Automatically creates new [services](https://sleitnick.github.io/Knit/knitapi/#service) from ModuleScripts found
+	 * Automatically creates new [services](https://atollstudios.github.io/Knit/knitapi/#service) from ModuleScripts found
 	 * directly within `folder`.
 	 * ```lua
 	 * Knit.AddServices(serverStorage.MyServices)

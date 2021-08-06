@@ -31,7 +31,7 @@ type ServiceMirror<T> = T extends Service<{}, infer C> ? MapServiceToClient<C> &
 
 interface KnitClient {
 	/**
-	 * A table that contains all created [controllers](https://sleitnick.github.io/Knit/knitapi/#controller).
+	 * A table that contains all created [controllers](https://atollstudios.github.io/Knit/knitapi/#controller).
 	 *
 	 * ```lua
 	 * local allControllers = Knit.Controllers
@@ -119,8 +119,8 @@ interface KnitClient {
 	readonly OnStart: () => Promise<void>;
 
 	/**
-	 * Creates a new [controller](https://sleitnick.github.io/Knit/knitapi/#controller). Returns the controller. Please
-	 * see the [Controllers](https://sleitnick.github.io/Knit/controllers/) documentation for more info.
+	 * Creates a new [controller](https://atollstudios.github.io/Knit/knitapi/#controller). Returns the controller. Please
+	 * see the [Controllers](https://atollstudios.github.io/Knit/controllers/) documentation for more info.
 	 *
 	 * The provided `controller` table must contain a unique `Name` property.
 	 */
@@ -150,7 +150,7 @@ interface KnitClient {
 	readonly AddControllersDeep: (folder: Instance) => void;
 
 	/**
-	 * Returns a [ServiceMirror](https://sleitnick.github.io/Knit/knitapi/#servicemirror) table object representing the
+	 * Returns a [ServiceMirror](https://atollstudios.github.io/Knit/knitapi/#servicemirror) table object representing the
 	 * service. Service methods and events that have been exposed to the client can be used from this returned object.
 	 *
 	 * ```lua
@@ -167,7 +167,7 @@ interface KnitClient {
 	readonly GetService: <T extends keyof KnitServices>(serviceName: T) => ServiceMirror<KnitServices[T]>;
 
 	/**
-	 * Returns a [controller](https://sleitnick.github.io/Knit/knitapi/#controller) with the given controller name. This
+	 * Returns a [controller](https://atollstudios.github.io/Knit/knitapi/#controller) with the given controller name. This
 	 * is just an alias for `Knit.Controllers[controllerName]` and only exists for developers who want to have the same
 	 * pattern used with `Knit.GetService`.
 	 */
