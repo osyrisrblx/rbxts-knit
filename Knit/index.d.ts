@@ -13,20 +13,20 @@ export type Service<S, C> = S & {
 	readonly Name: string;
 
 	/**
-	 * A [ServiceClient](https://sleitnick.github.io/Knit/knitapi/#serviceclient) table that contains client-exposed
+	 * A [ServiceClient](https://atollstudios.github.io/Knit/knitapi/#serviceclient) table that contains client-exposed
 	 * methods and events.
 	 */
 	readonly Client: C;
 
 	/**
 	 * An optional method that is called during the KnitInit lifecycle stage
-	 * (see [Execution Model](https://sleitnick.github.io/Knit/executionmodel/) for more info).
+	 * (see [Execution Model](https://atollstudios.github.io/Knit/executionmodel/) for more info).
 	 */
 	KnitInit(): void;
 
 	/**
 	 * An optional method that is called during the KnitStart lifecycle stage
-	 * (see [Execution Model](https://sleitnick.github.io/Knit/executionmodel/) for more info).
+	 * (see [Execution Model](https://atollstudios.github.io/Knit/executionmodel/) for more info).
 	 */
 	KnitStart(): void;
 };
@@ -39,13 +39,13 @@ export type Controller<T> = T & {
 
 	/**
 	 * An optional method that is called during the KnitInit lifecycle stage
-	 * (see [Execution Model](https://sleitnick.github.io/Knit/executionmodel/) for more info).
+	 * (see [Execution Model](https://atollstudios.github.io/Knit/executionmodel/) for more info).
 	 */
 	KnitInit(): void;
 
 	/**
 	 * An optional method that is called during the KnitStart lifecycle stage
-	 * (see [Execution Model](https://sleitnick.github.io/Knit/executionmodel/) for more info).
+	 * (see [Execution Model](https://atollstudios.github.io/Knit/executionmodel/) for more info).
 	 */
 	KnitStart(): void;
 };

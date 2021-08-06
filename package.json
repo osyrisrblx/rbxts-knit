@@ -1,6 +1,6 @@
 {
 	"name": "@rbxts/knit",
-	"version": "0.0.19-alpha.1",
+	"version": "0.0.19-alpha.2",
 	"description": "Roblox game framework (Alpha)",
 	"main": "Knit/init.lua",
 	"typings": "Knit/index.d.ts",
@@ -10,7 +10,7 @@
 	},
 	"license": "MIT",
 	"scripts": {},
-	"homepage": "https://sleitnick.github.io/Knit/",
+	"homepage": "https://atollstudios.github.io/Knit/",
 	"devDependencies": {
 		"@rbxts/compiler-types": "^1.1.1-types.3",
 		"@rbxts/types": "^1.0.479",
