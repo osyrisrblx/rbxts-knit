@@ -25,7 +25,6 @@ exports.Streamable = require(script.Util.Streamable)
 exports.StreamableUtil = require(script.Util.StreamableUtil)
 exports.Symbol = require(script.Util.Symbol)
 exports.TableUtil = require(script.Util.TableUtil)
-exports.Thread = require(script.Util.Thread)
 exports.Timer = require(script.Util.Timer)
 
 return exports
