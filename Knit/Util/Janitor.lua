@@ -4,7 +4,7 @@
 -- roblox-ts support by OverHash and Validark
 -- LinkToInstance fixed by Elttob.
 
-local TS = _G[script]
+local TS = _G[script.Parent.Parent]
 
 local RunService = game:GetService("RunService")
 local Promise = TS.Promise
