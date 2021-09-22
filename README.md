@@ -25,7 +25,7 @@ import { KnitClient as Knit } from "@rbxts/knit";
 You can register a service like this:
 ```ts
 declare global {
-	interface KnitServices {
+	interface KnitServices extends Instance {
 		MyService: typeof MyService;
 	}
 }
@@ -34,7 +34,7 @@ declare global {
 Or for a controller:
 ```ts
 declare global {
-	interface KnitControllers {
+	interface KnitControllers extends Instance {
 		MyController: typeof MyController;
 	}
 }
