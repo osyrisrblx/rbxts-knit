@@ -22,13 +22,18 @@ import { KnitClient as Knit } from "@rbxts/knit";
 
 ### **2. Services and Controllers must be registered.**
 
-You can register a service like this:
+You can index and register a service like this:
 ```ts
 declare global {
 	interface KnitServices extends Instance {
 		MyService: typeof MyService;
 	}
 }
+```
+
+```ts
+// Use your own Index
+Knit.AddServices(Index.Services);
 ```
 
 Or for a controller:
@@ -38,6 +43,10 @@ declare global {
 		MyController: typeof MyController;
 	}
 }
+```
+
+```ts
+Knit.AddControllers(Index.Controllers)
 ```
 
 ### **3. The entire Service or Controller definition must be an object.**
