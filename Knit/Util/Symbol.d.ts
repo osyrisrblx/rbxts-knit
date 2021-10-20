@@ -7,9 +7,9 @@ interface Symbol<T extends string> {
 }
 
 interface SymbolConstructor {
-	new (id: string, scope?: Symbol): Symbol;
-	readonly Is: (obj: unknown) => obj is Symbol;
-	readonly IsInScope: (obj: unknown, scope: Symbol) => boolean;
+	new <T extends string>(id: T, scope?: Symbol<string>): Symbol<T>;
+	readonly Is: (obj: unknown) => obj is Symbol<string>;
+	readonly IsInScope: (obj: unknown, scope: Symbol<string>) => boolean;
 }
 
 declare const Symbol: SymbolConstructor;
