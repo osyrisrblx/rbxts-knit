@@ -49,24 +49,22 @@ You must describe your service as a single object with fields, events, methods, 
 Components should defined using `implements Component.ComponentClass`. Here's an example:
 
 ```ts
-import { Component, Janitor } from "@rbxts/knit";
+import { Component } from "@rbxts/knit";
 
 class Lava implements Component.ComponentClass {
     public static Tag = "Lava";
 
-    private janitor = new Janitor();
-
+	connection: RBXScriptConnection;
+	
     constructor(instance: Instance) {
         assert(instance.IsA("BasePart"));
-        this.janitor.Add(
-            instance.Touched.Connect((otherPart) =>
-                otherPart.Parent?.FindFirstChildOfClass("Humanoid")?.TakeDamage(100),
-            ),
-        );
+		this.connection = instance.Touched.Connect((otherPart) =>
+			otherPart.Parent?.FindFirstChildOfClass("Humanoid")?.TakeDamage(100),
+		),
     }
 
     public Destroy() {
-        this.janitor.Destroy();
+        this.connection.Disconnect();
     }
 }
 
@@ -95,11 +93,11 @@ const PointsService = Knit.CreateService({
 
 	Client: {
 		// Client exposed signals:
-		PointsChanged: new RemoteSignal<(points: number) => void>(),
-		GiveMePoints: new RemoteSignal<() => void>(),
+		PointsChanged: Knit.CreateSignal<(points: number) => void>(),
+		GiveMePoints: Knit.CreateSignal<() => void>(),
 
 		// Client exposed properties:
-		MostPoints: new RemoteProperty(0),
+		MostPoints: Knit.CreateProperty<number>(0),
 
 		// Client exposed GetPoints method:
 		GetPoints(player: Player) {
@@ -148,6 +146,7 @@ export = PointsService;
 ```ts
 import { KnitClient as Knit } from "@rbxts/knit";
 
+Knit.Start().await();
 const PointsService = Knit.GetService("PointsService");
 
 function PointsChanged(points: number) {
